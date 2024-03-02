@@ -1,4 +1,4 @@
-const server = require('./src/app')
+const server = require('./src/app.js')
 const PORT = 3001;
 const { conn } = require('./src/db.js');
 
@@ -8,7 +8,7 @@ conn.sync({ force: false }).then(() => {
     server.listen(`${PORT}`, () => {
        console.log(`listening in ${PORT}`); // eslint-disable-line no-console
     });
-  });
+  })
 
 //web server
 // const http = require("http")
