@@ -49,7 +49,7 @@ function App() {
   const searchHandler = async (id) => {
     try {
       const { data } = await axios(
-        `https://rickdeploy.onrender.com//character/${id}`
+        `https://rickdeploy.onrender.com/character/${id}`
       );
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
