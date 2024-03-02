@@ -6,8 +6,15 @@ const {
   DATABASE_URL = ""
 } = process.env;
 const sequelize = new Sequelize(DATABASE_URL, {
-  logging: false
+  logging: false,
+  dialectOptions: {
+    ssl: {
+      require: false,
+      rejectUnauthorized: false
+    }
+  }
 });
+
 
 try {
   sequelize.authenticate();
