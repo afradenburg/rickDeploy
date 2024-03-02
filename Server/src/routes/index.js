@@ -1,6 +1,6 @@
-const { login } = require("../controlers/login");
-const { getCharById } = require("../controlers/getCharById");
-const { postFav, deleteFav } = require("../controlers/handleFavorites");
+const { login } = require("../controllers/login");
+const { getCharById } = require("../controllers/getCharById");
+const { postFav, deleteFav } = require("../controllers/handleFavorites");
 const { User } = require('../db');
 const  postUser  = require("../handlers/postUser")
 const router = require("express").Router();

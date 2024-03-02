@@ -1,4 +1,4 @@
-const postUserController = require('../controlers/postUserController')
+const postUserController = require('../controllers/postUserController')
 async function postUser(req, res) {
     try {
         const user  = await postUserController(req.body);
