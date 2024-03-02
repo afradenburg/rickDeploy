@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const URL = "https://rickdeploy.onrender.com//login";
+  const URL = "https://rickdeploy.onrender.com/login";
   // const EMAIL = "afradenbur@gmail.com"
   // const PASSWORD = "123456a"
 
