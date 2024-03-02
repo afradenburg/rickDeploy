@@ -5,7 +5,7 @@ const { conn } = require('./src/db.js');
 
 
 conn.sync({ force: false }).then(() => {
-    server.listen(`${PORT}`, () => {
+    server.listen(`${PORT}`, "0.0.0.0", () => {
        console.log(`listening in ${PORT}`); // eslint-disable-line no-console
     });
   })
