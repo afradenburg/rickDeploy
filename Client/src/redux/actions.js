@@ -2,7 +2,7 @@ import { RESET, ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionsTypes";
 import axios from "axios";
 
 export const addFav = (character) => {
-  const endpoint = "http://localhost:3001/fav";
+  const endpoint = "https://rickdeploy.onrender.com/:3001/fav";
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -18,7 +18,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/fav/" + id;
+  const endpoint = "https://rickdeploy.onrender.com/:3001/fav/" + id;
   return async (dispatch) => {
     try {
       const {data} = await axios.delete(endpoint)

@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const URL = "http://localhost:3001/login";
+  const URL = "https://rickdeploy.onrender.com//login";
   // const EMAIL = "afradenbur@gmail.com"
   // const PASSWORD = "123456a"
 
@@ -49,7 +49,7 @@ function App() {
   const searchHandler = async (id) => {
     try {
       const { data } = await axios(
-        `http://localhost:3001/character/${id}`
+        `https://rickdeploy.onrender.com//character/${id}`
       );
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);
