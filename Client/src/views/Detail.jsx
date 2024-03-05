@@ -9,7 +9,7 @@ function Detail() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`/${id}`).then(
+    axios(`/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacter(data);
