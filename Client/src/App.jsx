@@ -11,7 +11,7 @@ import Favorites from "./views/Favorites.jsx";
 import {Container} from "./styled/containerStyled.js"
 
 
-axios.defaults.baseURL = "rickdeploy-production.up.railway.app"
+axios.defaults.baseURL = "https://rickdeploy-production.up.railway.app"
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
@@ -29,12 +29,13 @@ function App() {
   const login = async (userData) => {
     try {
       const { correo, password } = userData;
+      // console.log(correo, password)
     const { data } = await axios("/login"+`?correo=${correo}&password=${password}`);
     const {access} = data;
      setAccess(data)
       access && navigate("/home");
     } catch (error) {
-      alert("datos no validos")
+      alert("datos no validos", console.log(error.message))
     }
   };
 
