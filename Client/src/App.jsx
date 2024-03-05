@@ -9,14 +9,16 @@ import Form from "./views/Form.jsx";
 import ErrorPage from "./views/ErrorPage.jsx";
 import Favorites from "./views/Favorites.jsx";
 import {Container} from "./styled/containerStyled.js"
-import { BackGif } from "./styled/mediumBodyStyled.js";
+import axios from 'axios';
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const URL = "https://rickdeploy.onrender.com/login";
+  const URL = "/login";
+  axios.defaults.baseURL = "rickdeploy-production.up.railway.app"
   // const EMAIL = "afradenbur@gmail.com"
   // const PASSWORD = "123456a"
 
@@ -49,7 +51,7 @@ function App() {
   const searchHandler = async (id) => {
     try {
       const { data } = await axios(
-        `https://rickdeploy.onrender.com/character/${id}`
+        `/character/${id}`
       );
       if (data.name) {
         setCharacters((oldChars) => [...oldChars, data]);

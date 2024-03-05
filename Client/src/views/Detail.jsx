@@ -9,7 +9,7 @@ function Detail() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://rickdeploy.onrender.com/character/${id}`).then(
+    axios(`/${id}`).then(
       ({ data }) => {
         if (data.name) {
           setCharacter(data);
