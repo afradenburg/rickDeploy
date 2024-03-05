@@ -9,16 +9,15 @@ import Form from "./views/Form.jsx";
 import ErrorPage from "./views/ErrorPage.jsx";
 import Favorites from "./views/Favorites.jsx";
 import {Container} from "./styled/containerStyled.js"
-import axios from 'axios';
 
 
+axios.defaults.baseURL = "rickdeploy-production.up.railway.app"
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
   const URL = "/login";
-  axios.defaults.baseURL = "rickdeploy-production.up.railway.app"
   // const EMAIL = "afradenbur@gmail.com"
   // const PASSWORD = "123456a"
 
@@ -30,7 +29,7 @@ function App() {
   const login = async (userData) => {
     try {
       const { correo, password } = userData;
-    const { data } = await axios(URL +`?correo=${correo}&password=${password}`);
+    const { data } = await axios("/login"+`?correo=${correo}&password=${password}`);
     const {access} = data;
      setAccess(data)
       access && navigate("/home");
