@@ -1,8 +1,8 @@
-import { RESET, ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionsTypes";
+import { RESET, ADD_FAV, REMOVE_FAV, FILTER, ORDER, CREATEUSER } from "./actionsTypes";
 import axios from "axios";
 
 export const addFav = (character) => {
-  const endpoint = "https://rickdeploy.onrender.com/:3000/fav";
+  const endpoint = "https://rickdeploy.onrender.com/fav";
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -16,9 +16,25 @@ export const addFav = (character) => {
   }
   };
 };
+export const createUser = ( user ) => {
+  const endpoint = "https://rickdeploy.onrender.com/newuser";
+  return async (dispatch) =>{
+  try {
+    const { data } = await axios.post(endpoint, user)
+  if (!data) throw Error("no se pudo crear usuario")
+  return dispatch({
+    type: CREATEUSER,
+    payload: data
+})
+  } catch (error) {
+    console.log("Error al obtener datos", error.message )
+
+  }
+}
+}
 
 export const removeFav = (id) => {
-  const endpoint = "https://rickdeploy.onrender.com/:3000/fav/" + id;
+  const endpoint = "https://rickdeploy.onrender.com/fav/" + id;
   return async (dispatch) => {
     try {
       const {data} = await axios.delete(endpoint)

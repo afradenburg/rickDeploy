@@ -2,8 +2,10 @@ import { useState } from "react";
 import { validation } from "../helpers/validate";
 import { FormLogin } from "../styled/formStyled";
 import { LabelLogin } from "../styled/labelStled";
+import { Link } from "react-router-dom";
 
 const Form = ({ login }) => {
+
   const [userData, setUserData] = useState({
     correo: "",
     password: "",
@@ -14,6 +16,7 @@ const Form = ({ login }) => {
     password: "Password requerido",
   });
 
+  
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -68,8 +71,9 @@ const Form = ({ login }) => {
       {errors.password && <span>{errors.password}</span>}
 
       <button disabled={diseableHandler()} type="submit">
-        SUBMIT
+        INGRESAR
       </button>
+      <Link to={"/reg"}>Registrate</Link>
     </FormLogin>
   );
 };

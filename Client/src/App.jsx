@@ -9,6 +9,7 @@ import Form from "./views/Form.jsx";
 import ErrorPage from "./views/ErrorPage.jsx";
 import Favorites from "./views/Favorites.jsx";
 import {Container} from "./styled/containerStyled.js"
+import  Register  from "./views/Register.jsx";
 
 
 axios.defaults.baseURL = "https://rickdeploy-production.up.railway.app"
@@ -84,7 +85,8 @@ function App() {
 
   return (
     <Container>
-      {location.pathname !== "/" && (
+
+      {location.pathname !== "/"  && (
         <Nav
         onSearch={searchHandler}
         randomize={randomHandler}
@@ -110,7 +112,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route parth="*" element={<ErrorPage />}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
+        <Route path="/reg" element={<Register />}/>
       </Routes>
     </Container>
   );

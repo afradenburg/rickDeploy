@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET } from "./actionsTypes";
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET, CREATEUSER } from "./actionsTypes";
 
 let initialState = { characters: [], myFavorites: [], allCharactersFav: [] };
 
@@ -34,6 +34,7 @@ const rootReducer = (state = initialState, action) => {
             ? allCharactersFavCopy.sort((a, b) => a.id - b.id)
             : allCharactersFavCopy.sort((a, b) => b.id - a.id),
       };
+    
     case RESET:
       return {
         ...state,
