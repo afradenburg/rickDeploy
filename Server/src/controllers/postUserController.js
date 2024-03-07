@@ -1,7 +1,8 @@
 const { User } = require("../db")
 
-async function postUserController({correo, password}){
+async function postUserController(user){
     try {
+        const { correo, password } = user
         const existUser = await User.findOne({
             where: {
                 correo: correo
@@ -17,7 +18,6 @@ async function postUserController({correo, password}){
         return newUser
     } catch (error) {
         throw new Error(error.message);
-
     }
 }
 

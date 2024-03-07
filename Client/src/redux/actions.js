@@ -2,39 +2,40 @@ import { RESET, ADD_FAV, REMOVE_FAV, FILTER, ORDER, CREATEUSER } from "./actions
 import axios from "axios";
 
 export const addFav = (character) => {
-  const endpoint = "https://rickdeploy.onrender.com/fav";
+  const endpoint = "/fav";
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
-      if(!data.length) throw Error('No hay favoritos')
-      return dispatch({
-        type: ADD_FAV,
-        payload: data,
-      });
+      if(data.length> 0)
+      dispatch({ type: ADD_FAV,
+    payload: data});
+      console.log(data)
     } catch (error) {
       console.log("Error al añadir a favorito", error )
   }
   };
 };
-export const createUser = ( user ) => {
-  const endpoint = "https://rickdeploy.onrender.com/newuser";
+export const createUser = ( newUser ) => {
+  const endpoint = "/newuser";
   return async (dispatch) =>{
   try {
-    const { data } = await axios.post(endpoint, user)
-  if (!data) throw Error("no se pudo crear usuario")
-  return dispatch({
-    type: CREATEUSER,
-    payload: data
-})
+    const data = await axios.post(endpoint, newUser)
+    console.log(data)
+    if (data.status === 201) {
+      alert("usuario creado correctamente")
+    return dispatch({
+      type: CREATEUSER,
+      payload: data
+  })
+    }
   } catch (error) {
-    console.log("Error al obtener datos", error.message )
-
+    alert("este correo ya esta en uso")
   }
 }
 }
 
 export const removeFav = (id) => {
-  const endpoint = "https://rickdeploy.onrender.com/fav/" + id;
+  const endpoint = "/fav/" + id;
   return async (dispatch) => {
     try {
       const {data} = await axios.delete(endpoint)

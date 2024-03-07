@@ -86,7 +86,7 @@ function App() {
   return (
     <Container>
 
-      {location.pathname !== "/"  && (
+      {(location.pathname !== "/" && location.pathname !== "/reg") && (
         <Nav
         onSearch={searchHandler}
         randomize={randomHandler}

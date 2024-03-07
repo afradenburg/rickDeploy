@@ -4,7 +4,7 @@ async function postUser(req, res) {
         const user  = await postUserController(req.body);
         res.status(201).json(user);
     } catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send("este correo ya esta registrado");
     }
 }
 module.exports = postUser

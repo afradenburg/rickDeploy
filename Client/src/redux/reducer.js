@@ -4,6 +4,13 @@ let initialState = { characters: [], myFavorites: [], allCharactersFav: [] };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case CREATEUSER:
+      return {
+        ...state,
+        character: [...state.characters],
+      };
+
     case ADD_FAV:
       return { ...state, 
         myFavorites: action.payload, 
