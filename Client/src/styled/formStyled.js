@@ -15,8 +15,8 @@ export const FormLogin = styled.form`
   text-orientation: initial;
   line-height: 2;
   color: white;
-  text-shadow: 5px 1px 5px blueviolet;
+  text-shadow: 5px 1px 5px black;
   border: 1px solid white;
   border-radius: 15px;
-  box-shadow: 7px 5px 5px blueviolet;
+  box-shadow: 7px 5px 5px #2be23c;
 `;

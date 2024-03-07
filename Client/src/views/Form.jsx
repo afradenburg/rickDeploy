@@ -73,7 +73,8 @@ const Form = ({ login }) => {
       <button disabled={diseableHandler()} type="submit">
         INGRESAR
       </button>
-      <Link to={"/reg"}>Registrate</Link>
+      <label>No te has registrado?</label>
+      <Link style={{color: "red"}} to={"/reg"}>Registrate</Link>
     </FormLogin>
   );
 };

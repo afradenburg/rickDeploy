@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../redux/actions"
 import { StyledLink } from "../styled/linkStyled";
+import { FormLogin } from "../styled/formStyled";
 
 const Register = () =>  {
 
@@ -26,13 +27,15 @@ const Register = () =>  {
       }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormLogin onSubmit={handleSubmit}>
       Registrate
-      <input type="correo" name="correo" placeholder="ingresa correo" onChange={handleNewUser}/>
-      <input type="password" name="password" placeholder="ingresa password" onChange={handleNewUser}/>
-      <button type="submit">Registrar</button>
+      <label>Correo electronico:</label>
+      <input style={{marginTop:"15px"}} type="correo" name="correo" placeholder="ingresa correo" onChange={handleNewUser}/>
+      <label>ingresa contraseña:</label>
+      <input style={{marginTop:"15px"}} type="password" name="password" placeholder="ingresa password" onChange={handleNewUser}/>
+      <button style={{marginTop:"15px"}} type="submit">Registrar</button>
       <StyledLink to={"/"}>volver</StyledLink>
-    </form>
+    </FormLogin>
   );
 };
 
