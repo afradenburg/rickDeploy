@@ -1,11 +1,11 @@
 const server = require('./src/app.js')
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5432;
 const { conn } = require('./src/db.js');
 
 
 
 conn.sync({ force: false }).then(() => {
-    server.listen(`${port}`, "0.0.0.0", () => {
+    server.listen(`${port}`, () => {
        console.log(`listening in ${port}`); // eslint-disable-line no-console
     });
   })
