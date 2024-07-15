@@ -12,7 +12,7 @@ import {Container} from "./styled/containerStyled.js"
 import  Register  from "./views/Register.jsx";
 
 
-axios.defaults.baseURL = "https://rickdeploy-production.up.railway.app"
+axios.defaults.baseURL = "https://rickdeploy.onrender.com"
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
